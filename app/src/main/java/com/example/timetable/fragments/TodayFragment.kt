@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.timetable.R
 import com.example.timetable.adapters.TodayAdapter
+import com.example.timetable.model.ScheduleItem
 
 class TodayFragment : Fragment(R.layout.fragment_today) {
 
@@ -17,18 +18,23 @@ class TodayFragment : Fragment(R.layout.fragment_today) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        recyclerView = view.findViewById(R.id.recycler_view_today) // Или R.id.recycler_view_week для WeekFragment
+        recyclerView = view.findViewById(R.id.recycler_view_today)
         recyclerView.layoutManager = LinearLayoutManager(context)
         adapter = TodayAdapter()
         recyclerView.adapter = adapter
-        // Заполнение RecyclerView данными для "Сегодня"
+
+        // Пример данных для RecyclerView
         val dummyData = generateDummyData()
         adapter.submitList(dummyData)
     }
 
-    private fun generateDummyData(): List<String> {
+    private fun generateDummyData(): List<ScheduleItem> {
         // Генерация тестовых данных для RecyclerView
-        val dummyData = listOf("Пара 1", "Пара 2", "Пара 3")
+        val dummyData = listOf(
+            ScheduleItem("09:00", "10:30", "Math", "101", "Mr. Smith"),
+            ScheduleItem("11:00", "12:30", "Physics", "202", "Ms. Johnson"),
+            ScheduleItem("13:00", "14:30", "History", "303", "Mr. Brown")
+        )
         Log.d("TodayFragment", "Generated dummy data: $dummyData")
         return dummyData
     }

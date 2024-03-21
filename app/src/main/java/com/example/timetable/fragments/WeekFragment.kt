@@ -8,8 +8,11 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.timetable.R
 import com.example.timetable.adapters.WeekAdapter
+import com.example.timetable.model.Parity
+import com.example.timetable.model.ScheduleItem
+import com.example.timetable.model.WeekSchedule
 
-class WeekFragment : Fragment(R.layout.fragment_week) {
+class WeekFragment : Fragment(R.layout.item_day_schedule) {
 
     private lateinit var recyclerView: RecyclerView
     private lateinit var adapter: WeekAdapter
@@ -25,9 +28,29 @@ class WeekFragment : Fragment(R.layout.fragment_week) {
         adapter.submitList(dummyData)
     }
 
-    private fun generateDummyData(): List<String> {
+    private fun generateDummyData(): List<WeekSchedule> {
         // Генерация тестовых данных для RecyclerView
-        val dummyData = listOf("Понедельник", "Вторник", "Среда", "Четверг", "Пятница", "Суббота", "Воскресенье")
+        val dummyData = listOf(
+            WeekSchedule(
+                Parity.EVEN, // Чётная неделя
+                "Понедельник",
+                listOf(
+                    ScheduleItem("08:00", "09:30", "Математика", "101", "Иванов"),
+                    ScheduleItem("10:00", "11:30", "Физика", "102", "Петров"),
+                    ScheduleItem("12:00", "13:30", "История", "103", "Сидоров")
+                )
+            ),
+            WeekSchedule(
+                Parity.ODD, // Нечётная неделя
+                "Вторник",
+                listOf(
+                    ScheduleItem("08:00", "09:30", "Биология", "201", "Козлов"),
+                    ScheduleItem("10:00", "11:30", "Химия", "202", "Лебедев"),
+                    ScheduleItem("12:00", "13:30", "Литература", "203", "Петрова")
+                )
+            )
+            // Добавьте здесь больше объектов WeekSchedule для других дней недели
+        )
         Log.d("WeekFragment", "Generated dummy data: $dummyData")
         return dummyData
     }

@@ -11,27 +11,22 @@ import com.example.timetable.R
 import com.example.timetable.model.Parity
 import com.example.timetable.model.WeekSchedule
 
-class WeekAdapter : ListAdapter<WeekSchedule, WeekAdapter.DayViewHolder>(DiffCallback()) {
+class WeekAdapter : ListAdapter<WeekSchedule, WeekAdapter.WeekViewHolder>(DiffCallback()) {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DayViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): WeekViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_day_schedule, parent, false)
-        return DayViewHolder(view)
+        return WeekViewHolder(view)
     }
 
-    override fun onBindViewHolder(holder: DayViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: WeekViewHolder, position: Int) {
         holder.bind(getItem(position))
     }
 
-    inner class DayViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        private val parityTextView: TextView = itemView.findViewById(R.id.text_parity)
+    inner class WeekViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val dayTextView: TextView = itemView.findViewById(R.id.text_day_of_week)
         private val lessonsTextView: TextView = itemView.findViewById(R.id.text_lessons)
 
         fun bind(weekSchedule: WeekSchedule) {
-            parityTextView.text = when (weekSchedule.parity) {
-                Parity.EVEN -> "Чётная неделя"
-                Parity.ODD -> "Нечётная неделя"
-            }
             dayTextView.text = weekSchedule.day
             val lessonsText = StringBuilder()
             for (lesson in weekSchedule.days) {

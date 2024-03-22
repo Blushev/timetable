@@ -21,7 +21,7 @@ class TodayAdapter : ListAdapter<ScheduleItem, TodayAdapter.ViewHolder>(DiffCall
         holder.bind(getItem(position))
     }
 
-    class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val startTimeTextView: TextView = itemView.findViewById(R.id.text_start_time)
         private val endTimeTextView: TextView = itemView.findViewById(R.id.text_end_time)
         private val subjectTextView: TextView = itemView.findViewById(R.id.text_subject)

@@ -2,40 +2,64 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
+    android:orientation="horizontal"
     android:padding="16dp">
 
+    <!-- Начальное время занятия -->
     <TextView
         android:id="@+id/text_start_time"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="16sp"
-        android:textStyle="bold" />
+        android:textColor="@android:color/black"
+        android:layout_marginEnd="8dp" />
 
+    <!-- Разделитель между временами -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="-"
+        android:textSize="16sp"
+        android:textColor="@android:color/black"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp" />
+
+    <!-- Конечное время занятия -->
     <TextView
         android:id="@+id/text_end_time"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="16sp"
-        android:textStyle="bold" />
+        android:textColor="@android:color/black"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="16dp" />
 
-
+    <!-- Название предмета -->
     <TextView
         android:id="@+id/text_subject"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:textSize="14sp" />
+        android:layout_weight="1"
+        android:textSize="14sp"
+        android:textColor="@android:color/black"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="8dp" />
 
+    <!-- Имя преподавателя -->
     <TextView
         android:id="@+id/text_teacher"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="14sp" />
+        android:textSize="14sp"
+        android:textColor="@android:color/black"
+        android:layout_marginEnd="8dp" />
 
+    <!-- Аудитория -->
     <TextView
         android:id="@+id/text_room"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="14sp" />
+        android:textSize="14sp"
+        android:textColor="@android:color/black" />
 
 </LinearLayout>

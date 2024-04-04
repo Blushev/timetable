@@ -1,8 +1,10 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/todayFragment"
-        android:title="@string/menu_today" />
+        android:title="@string/menu_today"
+        android:icon="@drawable/ic_today" />
     <item
         android:id="@+id/weekFragment"
-        android:title="Week" />
+        android:title="@string/menu_week"
+        android:icon="@drawable/ic_week" />
 </menu>

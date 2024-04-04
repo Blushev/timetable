@@ -1,5 +1,5 @@
 <resources>
-    <string name="menu_week">Week</string>
-    <string name="menu_today">Today</string>
+    <string name="menu_week">Неделя</string>
+    <string name="menu_today">Сегодня</string>
     <string name="app_name">timetable</string>
 </resources>

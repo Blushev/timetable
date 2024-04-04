@@ -3,15 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/rootFragment">
+    app:startDestination="@id/todayFragment">
 
-    <!-- Фрагмент для "Root" -->
-    <fragment
-        android:id="@+id/rootFragment"
-        android:name="com.example.timetable.fragments.RootFragment"
-        android:label="RootFragment" />
-
-    <!-- Фрагмент для "Сегодня" -->
     <fragment
         android:id="@+id/todayFragment"
         android:name="com.example.timetable.fragments.TodayFragment"
@@ -21,10 +14,12 @@
             app:destination="@id/weekFragment" />
     </fragment>
 
-    <!-- Фрагмент для "Недели" -->
     <fragment
         android:id="@+id/weekFragment"
         android:name="com.example.timetable.fragments.WeekFragment"
-        android:label="WeekFragment" />
-
+        android:label="WeekFragment">
+        <action
+            android:id="@+id/action_weekFragment_to_todayFragment"
+            app:destination="@id/todayFragment" />
+    </fragment>
 </navigation>

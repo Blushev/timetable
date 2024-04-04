@@ -1,8 +1,8 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/navigation_today"
+        android:id="@+id/todayFragment"
         android:title="@string/menu_today" />
     <item
-        android:id="@+id/navigation_week"
-        android:title="@string/menu_week" />
+        android:id="@+id/weekFragment"
+        android:title="Week" />
 </menu>

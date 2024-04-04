@@ -1,20 +1,24 @@
 package com.example.timetable
-
 import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-import com.example.timetable.fragments.RootFragment
-import com.example.timetable.fragments.TodayFragment
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.NavHostFragment
+import com.google.android.material.bottomnavigation.BottomNavigationView
+import androidx.navigation.ui.setupWithNavController
+import com.example.timetable.databinding.ActivityMainBinding
+
 
 class MainActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityMainBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-        // Заменить содержимое контейнера фрагментов на RootFragment
-        supportFragmentManager.beginTransaction()
-            .replace(R.id.nav_host_fragment, RootFragment())
-            .commit()
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
+        val navController = navHostFragment.navController
+
+        binding.bottomNavigation.setupWithNavController(navController)
     }
 }

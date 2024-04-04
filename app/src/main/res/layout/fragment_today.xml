@@ -3,20 +3,12 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <!-- Заголовок -->
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Сегодня"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        android:layout_margin="16dp"/>
-
-    <!-- RecyclerView для отображения данных -->
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_view_today"
+        android:id="@+id/recyclerViewToday"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
+        android:padding="8dp"
+        android:clipToPadding="false"
         android:scrollbars="vertical" />
 
 </LinearLayout>

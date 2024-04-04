@@ -1,8 +1,8 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/nav_today"
-        android:title="Сегодня"/>
+        android:id="@+id/navigation_today"
+        android:title="@string/menu_today" />
     <item
-        android:id="@+id/nav_week"
-        android:title="Неделя"/>
+        android:id="@+id/navigation_week"
+        android:title="@string/menu_week" />
 </menu>

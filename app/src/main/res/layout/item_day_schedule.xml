@@ -1,37 +1,21 @@
-<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:padding="16dp">
+    android:padding="8dp">
 
     <!-- День недели -->
     <TextView
         android:id="@+id/text_day_of_week"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="18sp"
-        android:textStyle="bold" />
+        android:textAppearance="?android:textAppearanceLarge" />
 
-    <!-- Чётность недели -->
-    <TextView
-        android:id="@+id/text_parity"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="16sp" />
-
-    <!-- Занятия -->
+    <!-- Список занятий на этот день -->
     <TextView
         android:id="@+id/text_lessons"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="14sp" />
-
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_view_week"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:scrollbars="vertical" />
+        android:textAppearance="?android:textAppearanceMedium" />
 
 </LinearLayout>

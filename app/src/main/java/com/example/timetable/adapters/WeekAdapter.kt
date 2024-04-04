@@ -14,15 +14,15 @@ import com.example.timetable.model.WeekSchedule
 class WeekAdapter : ListAdapter<WeekSchedule, WeekAdapter.WeekViewHolder>(DiffCallback()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): WeekViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_day_schedule, parent, false)
-        return WeekViewHolder(view)
+        return WeekViewHolder.create(parent)
     }
 
     override fun onBindViewHolder(holder: WeekViewHolder, position: Int) {
-        holder.bind(getItem(position))
+        val weekSchedule = getItem(position)
+        holder.bind(weekSchedule)
     }
 
-    inner class WeekViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    class WeekViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val dayTextView: TextView = itemView.findViewById(R.id.text_day_of_week)
         private val lessonsTextView: TextView = itemView.findViewById(R.id.text_lessons)
 
@@ -33,6 +33,13 @@ class WeekAdapter : ListAdapter<WeekSchedule, WeekAdapter.WeekViewHolder>(DiffCa
                 lessonsText.append("${lesson.startTime} - ${lesson.endTime}: ${lesson.subject}, ${lesson.teacher}, ${lesson.classroom}\n")
             }
             lessonsTextView.text = lessonsText.toString()
+        }
+
+        companion object {
+            fun create(parent: ViewGroup): WeekViewHolder {
+                val view = LayoutInflater.from(parent.context).inflate(R.layout.item_day_schedule, parent, false)
+                return WeekViewHolder(view)
+            }
         }
     }
 

@@ -24,7 +24,6 @@ class RootFragment : Fragment(R.layout.fragment_root) {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentRootBinding.inflate(inflater, container, false)
-        Log.d("RootFragment", "onCreateView: binding created successfully")
         return binding.root
     }
 
@@ -33,37 +32,32 @@ class RootFragment : Fragment(R.layout.fragment_root) {
 
         val navController = NavHostFragment.findNavController(this)
 
-        val bottomNavigationView = binding.bottomNavigation
-
-        bottomNavigationView.setOnNavigationItemSelectedListener { menuItem ->
-            Log.d("RootFragment", "Menu item selected: ${menuItem.title}")
+        binding.bottomNavigation.setOnNavigationItemSelectedListener { menuItem ->
             when (menuItem.itemId) {
-                R.id.nav_today -> {
-                    Log.d("RootFragment", "Today menu item selected")
-
-                    navController.popBackStack()
-
-                    // Переходим на фрагмент "Сегодня"
-                    navController.navigate(R.id.todayFragment)
-                    true
+                R.id.navigation_today -> {
+                    val activity = requireActivity()
+                    if (!activity.isFinishing && !activity.isDestroyed) {
+                        navController.popBackStack()
+                        navController.navigate(R.id.todayFragment)
+                        true
+                    } else {
+                        false
+                    }
                 }
-                R.id.nav_week -> {
-                    Log.d("RootFragment", "Week menu item selected")
-                    navController.popBackStack()
-
-                    // Переходим на фрагмент "Неделя"
-                    navController.navigate(R.id.weekFragment)
-                    true
+                R.id.navigation_week -> {
+                    val activity = requireActivity()
+                    if (!activity.isFinishing && !activity.isDestroyed) {
+                        navController.popBackStack()
+                        navController.navigate(R.id.weekFragment)
+                        true
+                    } else {
+                        false
+                    }
                 }
-                else -> {
-                    Log.d("RootFragment", "Unknown menu item selected")
-                    false
-                }
-
+                else -> false
             }
         }
     }
-
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null

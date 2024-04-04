@@ -32,6 +32,8 @@ class TodayFragment : Fragment(R.layout.fragment_today) {
 
         val todaySchedule = findTodaySchedule()
         todaySchedule?.let {
+            val currentDayOfWeek = it.day
+            binding.textCurrentDay.text = currentDayOfWeek
             adapter.submitList(it.days)
         }
     }
